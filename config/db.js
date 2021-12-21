@@ -12,7 +12,7 @@ const connectDB = async () => {
     // Try/Catch to filter for errors
     try {
         // Await due to promise
-        await mongoose.connect(db);
+        await mongoose.connect(db, { useNewUrlParser: true });
         // Console log connection success
         console.log('MongoDB Connected...');
     } catch(err) {
