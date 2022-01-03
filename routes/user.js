@@ -78,14 +78,14 @@ router.post('/', [
         // Save to db
             // Returns promise so await
         await user.save();
-        // TO DO: Return JSON Web token
+        // Return JSON Web token
 
         res.send('User Registered')
     } catch(err) {
         console.error(err.message);
-        res
-            .status(500)
-            .send('Server Error');
+            res
+                .status(500)
+                .send('Server Error');
         }
     }
 );

@@ -11,6 +11,8 @@ Dev Connection is a small social network app that includes authentication, profi
 
 1. [Technologies and Skills](#technologies)
 
+1. [Database Model & Design](#database)
+
 1. [Screenshots](#screenshots)
 
 1. [Installation](#installation)
@@ -41,6 +43,8 @@ Technologies and Skills
 * Redux
 * [JWT](jwt.io)
 * [Express Validator](https://express-validator.github.io/docs/)
+
+## <a id="database"></a>Database Model & Design
 
 
 ## <a id="screenshot"></a>Screenshots
