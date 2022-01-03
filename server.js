@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3001;
 
 // Initialize Middleware
 app.use(express.json({ extended: false }));
-app.get('/', (req, res) => res.send('API runnig'));
+app.get('/', (req, res) => res.send('API running'));
 
 // Define routes
 app.use('/routes/user', require('./routes/user'));
