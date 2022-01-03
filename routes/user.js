@@ -14,7 +14,11 @@ router.get('/', (req,res) =>
 router.post('/', [
     check('name', 'Name is required')
         .not()
-        .isEmpty()
+        .isEmpty(),
+    check('email', 'Please include a valid email')
+        .isEmail(),
+    check('password', 'Please use a password with 6 or more characters!')
+        .isLength({ min: 6 })
 ],(req,res) => {
     console.log(req.body)
     res.send('User Route')
