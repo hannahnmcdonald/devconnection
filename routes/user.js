@@ -33,7 +33,7 @@ router.post('/', [
 ],
     async (req,res) => {
     // console.log(req.body)
-    // Declare constant of errors set to the validation result
+        // Declare constant of errors set to the validation result
     const errors = validationResult(req)
     // If errors, return 400 error and error array in JSON
     if(!errors.isEmpty()) {
@@ -54,7 +54,7 @@ router.post('/', [
                 });
             }
         // GET User's gravatar
-        // Gravatar settings
+            // Gravatar settings
         const avatar = gravatar.url(email, {
             // img size
             s: '200',
@@ -76,7 +76,7 @@ router.post('/', [
         // hash password. Takes in plain text password and salt
         user.password = await bcrypt.hash(password, salt);
         // Save to db
-        // Returns promise so await
+            // Returns promise so await
         await user.save();
         // TO DO: Return JSON Web token
 
