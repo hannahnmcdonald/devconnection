@@ -6,3 +6,6 @@ Dev Connection is a small social network app that includes authentication, profi
 
 Application uses Node.js, Redux, React, MongoDB, JWT Authentication, & Heroku Deployment
 
+Tools:
+* [Express Validator](https://express-validator.github.io/docs/)
+

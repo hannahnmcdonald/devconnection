@@ -2,12 +2,13 @@ const express = require('express');
 const router = express.Router();
 // Express Validator for forms
 const { check, validationResult } = require('express-validator');
-// Require in user model
-const User = require('../models/User')
 // Bring in Gravatar
 const gravatar = require('gravatar');
 // Bring in bcrypt
 const bcrypt = require('bcryptjs');
+
+// Require in user model
+const User = require('../models/User')
 
 // @route GET api/users
 // @desc: Test
@@ -23,7 +24,7 @@ router.post('/', [
     check('name', 'Name is required')
         .not()
         .isEmpty(),
-        // Chrecks for valid email 
+        // Checks for valid email 
     check('email', 'Please include a valid email')
         .isEmail(),
         // Checks that password is present and that it has more than the minimum characters.
@@ -36,16 +37,22 @@ router.post('/', [
     const errors = validationResult(req)
     // If errors, return 400 error and error array in JSON
     if(!errors.isEmpty()) {
-        return res.status(400).json( { errors: errors.array() } );
+        return res
+            .status(400)
+            .json( { errors: errors.array() } );
     } 
+    const { name, email, password } = req.body;
     try {
         // See if User already exists
-        let user = await User.findOne({ email });
+        let user = await User
+            .findOne({ email });
             //IF user exists, send error
-            if(user) {
-                res.status(400).json({ errors: [{msg: 'User already exists' }] });
+            if (user) {
+                return res
+                    .status(400)
+                    .json({ errors: [{ msg: 'User already exists' }] 
+                });
             }
-        const { name, email, password } = req.body;
         // GET User's gravatar
         // Gravatar settings
         const avatar = gravatar.url(email, {
@@ -76,8 +83,11 @@ router.post('/', [
         res.send('User Registered')
     } catch(err) {
         console.error(err.message);
-        res.status(500).send('Server error');
+        res
+            .status(500)
+            .send('Server Error');
+        }
     }
-});
+);
 
 module.exports = router;
