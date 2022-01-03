@@ -1,3 +1,4 @@
 {
-    "mongoURI": "mongodb+srv://hannahnmcdonald:hannah123@cluster0.r9tyt.mongodb.net/devconnection?retryWrites=true&w=majority"
+    "mongoURI": "mongodb+srv://hannahnmcdonald:hannah123@cluster0.r9tyt.mongodb.net/devconnection?retryWrites=true&w=majority",
+    "jwtSecret": "supersecretsecret"
 }

@@ -2,10 +2,11 @@ const express = require('express');
 const router = express.Router();
 // Express Validator for forms
 const { check, validationResult } = require('express-validator');
-// Bring in Gravatar
 const gravatar = require('gravatar');
-// Bring in bcrypt
 const bcrypt = require('bcryptjs');
+const jwt = require('jsonwebtoken');
+// bring in config for jwt secret
+const config = require('config');
 
 // Require in user model
 const User = require('../models/User')
@@ -71,7 +72,7 @@ router.post('/', [
             password
         });
         // Need to encrypt password before saving it to db
-        // create salt
+            // create salt
         const salt = await bcrypt.genSalt(10);
         // hash password. Takes in plain text password and salt
         user.password = await bcrypt.hash(password, salt);
@@ -79,8 +80,24 @@ router.post('/', [
             // Returns promise so await
         await user.save();
         // Return JSON Web token
-
-        res.send('User Registered')
+        const payload = {
+            user: {
+                // abstraction of _id from mongoose
+                id: user.id
+            }
+        }
+        // Bring in JWTSecret from config
+        jwt.sign(
+            payload, 
+            config
+                .get('jwtSecret'),
+            {expiresIn: 360000 },
+            (err, token) => {
+                if(err) throw err;
+                res.json({ token });
+            }
+        );
+        // res.send('User Registered')
     } catch(err) {
         console.error(err.message);
             res
