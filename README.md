@@ -50,8 +50,6 @@ Technologies and Skills
 ## <a id="screenshot"></a>Screenshots
 
 
-
-
 ## <a id="installation"></a>Installation
 
 - The application uses a package manager.  From the root directoy, run the command below to install required modules.
@@ -74,4 +72,4 @@ Contact me at hannahcodes@protonmail.com 📫 or through my Github profile [here
 
 ## <a id="sample"></a>Link to Heroku Deployment
 
-- [Experience Dev Connection for Yourself]()
+- [Experience Dev Connection for Yourself]() IN PROGRESS- Not deployed yet
