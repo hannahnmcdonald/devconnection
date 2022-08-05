@@ -31,9 +31,6 @@ Dev Connection is a small social network app that includes authentication, profi
 
 ## <a id="technologies"></a>Technologies and Skills
 
-Project Methodology
-* Github Project Management using SCRUM Methodology
-
 Technologies and Skills
 * MongoDb
 * Express
@@ -72,4 +69,4 @@ Contact me at hannahcodes@protonmail.com 📫 or through my Github profile [here
 
 ## <a id="sample"></a>Link to Heroku Deployment
 
-- [Experience Dev Connection for Yourself]() IN PROGRESS- Not deployed yet
+- [Experience Dev Connection for Yourself]() - Not deployed yet
